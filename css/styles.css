@@ -4219,3 +4219,62 @@ img.u-pull-left {
         padding-right: 1.5rem;
     }
 }
+
+
+
+/* Logo container for prominent display */
+.s-intro__logo-container {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    text-align: center;
+    opacity: 0;
+    animation: slideInLogo 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.s-intro__logo-container img {
+    max-width: 350px;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.s-intro__logo-container img:hover {
+    transform: scale(1.15);
+    opacity: 0.95;
+}
+
+/* Ensure content is positioned to avoid overlap with logo */
+.s-intro__content {
+    position: relative;
+    z-index: 4;
+    padding-top: 400px; /* Increased to accommodate large logo */
+}
+
+/* Animation for logo entrance */
+@keyframes slideInLogo {
+    0% { opacity: 0; transform: translateX(-50%) translateY(-50px); }
+    100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .s-intro__logo-container img {
+        max-width: 250px;
+    }
+    .s-intro__content {
+        padding-top: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .s-intro__logo-container img {
+        max-width: 180px;
+    }
+    .s-intro__content {
+        padding-top: 220px;
+    }
+}
